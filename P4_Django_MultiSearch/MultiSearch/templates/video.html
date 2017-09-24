@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            display: inline-block;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h3>选择</h3>
+    <div>
+        <a href="">全部</a>
+        {% for item in direction_list %}
+            <a href="">{{ item.name }}</a>
+        {% endfor %}
+    </div>
+
+    <div>
+        <a href="">全部</a>
+        {% for item in class_list %}
+            <a href="">{{ item.name }}</a>
+        {% endfor %}
+    </div>
+
+    <div>
+        <a href="">全部</a>
+        {% for item in level_list %}
+            {# item:((1, '初级'), (2, '中级'), (3, '高级')) #}
+            <a href="">{{ item.1 }}</a>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h3>视频</h3>
+    <hr>
+
+</body>
+</html>
