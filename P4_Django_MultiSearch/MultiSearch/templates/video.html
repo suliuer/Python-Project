@@ -1,3 +1,4 @@
+{% load xx %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,32 +12,39 @@
     </style>
 </head>
 <body>
-    <h3>选择</h3>
-    <div>
-        <a href="">全部</a>
-        {% for item in direction_list %}
-            <a href="">{{ item.name }}</a>
-        {% endfor %}
-    </div>
+    {% my_simple_time 1 2 3 %}
 
+    <h3>选择：</h3>
     <div>
-        <a href="">全部</a>
-        {% for item in class_list %}
-            <a href="">{{ item.name }}</a>
-        {% endfor %}
-    </div>
-
-    <div>
-        <a href="">全部</a>
-        {% for item in level_list %}
-            {# item:((1, '初级'), (2, '中级'), (3, '高级')) #}
-            <a href="">{{ item.1 }}</a>
-        {% endfor %}
+            {% action_all current_url 1 %} :
+            {% for item in direction_list %}
+                 {% action current_url item 1 %}
+            {% endfor %}
+        </div>
+        <div>
+            {% action_all current_url 2 %} :
+            {% for item in class_list %}
+                {% action current_url item 2 %}
+            {% endfor %}
+        </div>
+        <div>
+            {% action_all current_url 3 %} :
+            {% for item in level_list %}
+                {% action current_url item 3 %}
+            {% endfor %}
     </div>
 
     <hr>
 
-    <h3>视频</h3>
+    <h3>视频：</h3>
+    {% for item in video_list %}
+        <a class="item" href="{{ item.href }}">
+            <img src="/{{ item.img }}" width="300px" height="400px">
+            <p>{{ item.title }}</p>
+            <p>{{ item.summary }}</p>
+        </a>
+    {% endfor %}
+
     <hr>
 
 </body>

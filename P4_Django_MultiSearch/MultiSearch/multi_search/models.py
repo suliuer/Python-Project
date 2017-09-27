@@ -17,7 +17,7 @@ class Video(models.Model):
     )
     status = models.IntegerField(verbose_name='状态', choices=status_choice, default=1)
     level = models.IntegerField(verbose_name='级别', choices=level_choice, default=1)
-    classification = models.ForeignKey('Classification', null=True, blank=True)
+    classification = models.ForeignKey('Classification', verbose_name='分类', null=True, blank=True)
 
     weight = models.IntegerField(verbose_name='权重（按从大到小排列）', default=0)
 

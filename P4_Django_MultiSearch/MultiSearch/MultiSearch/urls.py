@@ -19,5 +19,5 @@ from multi_search import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^video.html', views.video)
+    url(r'^video-(?P<direction_id>\d+)-(?P<classification_id>\d+)-(?P<level_id>\d+).html', views.video)
 ]
