@@ -80,8 +80,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_multisearch',
         'USER': 'root',
-        # 'PASSWORD': '',
-        'PASSWORD': 'suliuer',
+        'PASSWORD': '',
+        # 'PASSWORD': 'suliuer',
         'HOST': '',
         'PORT': '',
     }
