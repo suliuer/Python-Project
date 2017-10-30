@@ -48,7 +48,10 @@ def video(request,*args,**kwargs):
     class_id = int(kwargs.get('classification_id'))
 
     # 从数据库中获取所有的视频方向（包括视频方向的id和name）
-    direction_list = models.Direction.objects.all().values('id','name')
+    direction_list = models.Direction.objects.all().values('id', 'name')
+    # <QuerySet [{'id': 1, 'name': '运维自动化'}, {'id': 2, 'name': '虚拟化'}, {'id': 3, 'name': '全栈'}]>
+
+    print(direction_list)
 
     # 如果视频方向是0
     if kwargs.get('direction_id') == '0':
@@ -106,8 +109,9 @@ def video(request,*args,**kwargs):
     video_list = models.Video.objects.filter(**q).values('title','summary', 'img', 'href')
 
     # 把视频等级转化为单个标签是字典格式，整体是列表格式
-    ret = map(lambda x:{"id": x[0], 'name': x[1]}, models.Video.level_choice)
+    ret = map(lambda x: {"id": x[0], 'name': x[1]}, models.Video.level_choice)
     level_list = list(ret)
+
     return render(request, 'video.html', {'direction_list': direction_list,
                                           'class_list': class_list,
                                           'level_list': level_list,

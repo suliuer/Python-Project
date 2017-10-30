@@ -50,12 +50,12 @@ def action(current_url, item, index):
     url_part_list = current_url.split('-')
 
     if index == 3:
-        if str(item['id']) == url_part_list[3].split('.')[0]:  #如果当前标签被选中
+        if str(item['id']) == url_part_list[3].split('.')[0]:  # 如果当前标签被选中
              temp = "<a href='%s' class='active'>%s</a>"
         else:
             temp = "<a href='%s'>%s</a>"
 
-        url_part_list[index] = str(item['id']) + '.html' #拼接对应位置的部分url
+        url_part_list[index] = str(item['id']) + '.html'  # 拼接对应位置的部分url
     else:
         if str(item['id']) == url_part_list[index]:
             temp = "<a href='%s' class='active'>%s</a>"
@@ -64,6 +64,6 @@ def action(current_url, item, index):
 
         url_part_list[index] = str(item['id'])
 
-    ur_str = '-'.join(url_part_list)  #拼接整体url
-    temp = temp %(ur_str, item['name']) #生成对应的a标签
-    return mark_safe(temp)  #返回安全的html
+    ur_str = '-'.join(url_part_list)  # 拼接整体url
+    temp = temp %(ur_str, item['name'])  # 生成对应的a标签
+    return mark_safe(temp)   # 返回安全的html
